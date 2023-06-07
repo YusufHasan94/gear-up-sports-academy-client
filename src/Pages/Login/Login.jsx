@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import login from "../../assets/login.svg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -6,9 +8,9 @@ const Login = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left w-1/2">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <div className="text-center lg:text-left w-full md:w-1/2">
+                    <h1 className="text-5xl font-bold text-center my-10">Login now</h1>
+                    <img src={login} alt="" className="w-full"/>
                 </div>
                 <div className="card flex-shrink-0 w-full md:w-1/2 shadow-2xl bg-base-100">
                     <div className="card-body">
@@ -17,15 +19,18 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input {...register("firstName")} className="input input-bordered w-full" />
+                                <input type="email" {...register("firstName")} className="input input-bordered w-full" />
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input {...register("firstName")} className="input input-bordered w-full" />
+                                <input type="password" {...register("password")} className="input input-bordered w-full" />
                             </div>
-                            <input type="submit" value="Log in" className="btn btn-primary mt-5"/>
+                            <div className="mt-4"> 
+                                <h1>Don't have any account? Please <Link to="/registration" className="text-blue-800 font-semibold">Registration</Link> here</h1>
+                            </div>
+                            <input type="submit" value="Log in" className="btn bg-[#c74a73] text-white mt-4 hover:text-black"/>
                         </form>
                     </div>
                 </div>

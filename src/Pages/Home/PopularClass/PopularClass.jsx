@@ -3,9 +3,15 @@ import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
-import cricket from "../../../assets/banner/banner1.jpg";
+import { useEffect, useState } from 'react';
 
 const PopularClass = () => {
+    const [classes, setClasses] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/classes')
+        .then(res=> res.json())
+        .then(data => setClasses(data))
+    },[])
     return (
         <div className='my-10'>
             <SectionTitle heading="Popular Class"></SectionTitle>
@@ -19,18 +25,22 @@ const PopularClass = () => {
                     modules={[Pagination]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={cricket} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                    {
+                        classes.map(data => (
+                            <SwiperSlide key={data._id}>
+                                <div className="card w-96 bg-base-100 shadow-xl">
+                                    <figure><img src={data.image} alt="Shoes" className='h-64' /></figure>
+                                    <div className="card-body">
+                                        <h2 className="card-title">{data.name}</h2>
+                                        <p><span className='font-semibold'>Instructor Name:</span> {data.instructorName}</p>
+                                        <div className="card-actions justify-end">
+                                        <button className="btn bg-[#c74a73] text-white hover:text-black">View Details</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div>
         </div>

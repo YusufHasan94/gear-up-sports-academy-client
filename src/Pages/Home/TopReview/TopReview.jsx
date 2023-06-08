@@ -5,7 +5,7 @@ import img from "../../../assets/images/racket-6308994_1280.jpg";
 const TopReview = () => {
     return (
         <div className="my-10">
-            <SectionTitle heading="Top Feedback"></SectionTitle>
+            <SectionTitle heading="sweet Words"></SectionTitle>
             <div className="my-10">
                 <Marquee>
                     <div className="card w-96 bg-base-100 shadow-xl mx-4">

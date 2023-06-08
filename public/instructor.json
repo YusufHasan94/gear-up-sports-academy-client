@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Mark Donald",
+        "image": "https://img.freepik.com/free-photo/medium-shot-teacher-holding-clipboard_23-2149038821.jpg?w=740&t=st=1686250986~exp=1686251586~hmac=cc1559169b5afb5b9d84a9218c49bf891fe63db953b2d25572493cb68cda8298",
+        "email": "mark@gmail.com",
+        "classesTaken": 1,
+        "classes": [{
+            "id": "#cls001",
+            "name": "Cricket"
+        }]
+    },{
+        "name": "Josef Hussy",
+        "image": "https://img.freepik.com/free-photo/handsome-man-is-engaged-gym_1157-29459.jpg?w=740&t=st=1686251006~exp=1686251606~hmac=3e2a38be8ba366a83047dcee3b67dd1092df533509fe336b44be7d5a959c2135",
+        "email": "josef@gmail.com",
+        "classesTaken": 1,
+        "classes": [{
+            "id": "#cls002",
+            "name": "Football"
+        }]
+    },{
+        "name": "Stiven Joe",
+        "image": "https://img.freepik.com/premium-photo/handsome-young-male-instructor-fitness-center_488220-12423.jpg?w=740",
+        "email": "stiven@gmail.com",
+        "classesTaken": 1,
+        "classes": [{
+            "id": "#cls003",
+            "name": "Basketball"
+        }]
+    },{
+        "name": "Mikel Hussy",
+        "image": "https://img.freepik.com/free-photo/sports-man-spend-time-morning-gym_1157-28936.jpg?w=740&t=st=1686251044~exp=1686251644~hmac=da66ac11336a4c17dc1d4153bef207933920ca3b153b4e4d93c042dc8abfb552",
+        "email": "mikel@gmail.com",
+        "classesTaken": 1,
+        "classes": [{
+            "id": "#cls004",
+            "name": "Tennis"
+        }]
+    },{
+        "name": "Bill Gates",
+        "image": "https://img.freepik.com/premium-photo/personal-trainer-takes-notes-clipboard_600776-41317.jpg?w=740",
+        "email": "bill@gmail.com",
+        "classesTaken": 1,
+        "classes": [{
+            "id": "#cls005",
+            "name": "Rubik's Cube"
+        }]
+    },{
+        "name": "Josef Cartoz",
+        "image": "https://img.freepik.com/free-photo/young-handsome-man-sportswear-gym_1303-20729.jpg?w=740&t=st=1686251106~exp=1686251706~hmac=fe92b41d72f480242f962a2508fdf6f33c3e921e05109c9ccdfea24f7e40622c",
+        "email": "cartoz@gmail.com",
+        "classesTaken": 1,
+        "classes": [{
+            "id": "#cls006",
+            "name": "Chess"
+        }]
+    }
+]

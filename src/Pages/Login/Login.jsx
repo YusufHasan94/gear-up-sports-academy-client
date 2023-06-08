@@ -1,12 +1,22 @@
 import { useForm } from "react-hook-form";
 import login from "../../assets/login.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset } = useForm();
+    const {loginUser} = useContext(AuthContext);
+    const onSubmit = data => {
+        loginUser(data.email, data.password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            reset();
+        })
+    };
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 py-28">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-full md:w-1/2">
                     <h1 className="text-5xl font-bold text-center my-10">Login now</h1>
@@ -19,7 +29,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" {...register("firstName")} className="input input-bordered w-full" />
+                                <input type="email" {...register("email")} className="input input-bordered w-full" />
                             </div>
                             <div>
                                 <label className="label">

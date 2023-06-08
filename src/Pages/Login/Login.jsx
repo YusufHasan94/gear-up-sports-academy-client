@@ -3,17 +3,24 @@ import login from "../../assets/login.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState:{errors} } = useForm();
     const {loginUser} = useContext(AuthContext);
     const onSubmit = data => {
         loginUser(data.email, data.password)
         .then(result=>{
             const user = result.user;
             console.log(user);
+            Swal.fire({
+                icon: 'success',
+                title: 'Congratulations',
+                text: 'Login Successful'
+              })
             reset();
         })
+        .then(error => console.log(error))
     };
     return (
         <div className="hero min-h-screen bg-base-200 py-28">
@@ -40,6 +47,7 @@ const Login = () => {
                             <div className="mt-4"> 
                                 <h1>Don't have any account? Please <Link to="/registration" className="text-blue-800 font-semibold">Registration</Link> here</h1>
                             </div>
+                            {errors.message && <span>Password is not correct</span> }
                             <input type="submit" value="Log in" className="btn bg-[#c74a73] text-white mt-4 hover:text-black"/>
                         </form>
                     </div>

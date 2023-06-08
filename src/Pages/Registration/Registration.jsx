@@ -14,8 +14,7 @@ const Registration = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserInfo(data.firstName, data.photoURL)
-                .then((result)=>{
-                    console.log(result.user);
+                .then(()=>{
                     reset();
                 })
             })
@@ -49,7 +48,7 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input type="text" {...register("photoUrl")} className="input input-bordered w-full"/>
+                                <input type="text" {...register("photoURL")} className="input input-bordered w-full"/>
                             </div>
                             <div>
                                 <label className="label">

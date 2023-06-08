@@ -1,18 +1,35 @@
+import { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../providers/AuthProvider";
+import { FaUserAlt } from "react-icons/fa";
 
 
 const Navbar = () => {
+    const {user, loading, logOut} = useContext(AuthContext); 
+    const handleLogOut = ()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error => console.log(error))
+    }
     const menuItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/">Instructors</Link></li>
         <li><Link to="/">Classes</Link></li>
-        <li><Link to="/">Dashboard</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        {user? <>
+            {
+                user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:
+                <img src="" alt="" className="w-10 rounded-full bg-slate-300" />
+            }
+            <li><Link to="/">Dashboard</Link></li>
+            <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
+        </>:
+            <li><Link to="/login">Log In</Link></li>
+
+        }
     </>
     return (
-        <div className="navbar fixed z-20 bg-opacity-40 gap-20 bg-[#c74a73]">
+        <div className="navbar max-w-screen-xl fixed z-20 bg-opacity-40 gap-20 bg-[#c74a73]">
             <div className="">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,11 +41,11 @@ const Navbar = () => {
                 </div>
                 <div className="flex gap-5">
                     <img src={logo} className="w-28" alt="" />
-                    <h1 className="text-xl font-semibold">Gear UP<br />Sports Academy</h1>
+                    <h1 className="text-xl font-semibold text-white">Gear UP<br />Sports Academy</h1>
                 </div>
             </div>
-            <div className="hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-lg font-semibold">
+            <div className="hidden lg:flex lg:ms-72">
+                <ul className="menu menu-horizontal px-1 text-lg font-semibold text-white">
                     {menuItem}
                 </ul>
             </div>

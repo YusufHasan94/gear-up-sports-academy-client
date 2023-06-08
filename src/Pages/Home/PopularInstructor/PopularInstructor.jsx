@@ -15,7 +15,8 @@ const PopularInstructor = () => {
                         <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
-                </div><div className="card w-96 bg-base-100 shadow-xl">
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
                     <figure><img src={img} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Shoes!</h2>

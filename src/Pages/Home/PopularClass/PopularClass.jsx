@@ -3,7 +3,7 @@ import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
-import img from "../../../assets/imges/racket-6308994_1280.jpg";
+import cricket from "../../../assets/banner/banner1.jpg";
 
 const PopularClass = () => {
     return (
@@ -21,73 +21,7 @@ const PopularClass = () => {
                 >
                     <SwiperSlide>
                         <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide><SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide><SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide><SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide><SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide><SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide><SwiperSlide>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={img} alt="Shoes" /></figure>
+                            <figure><img src={cricket} alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">Shoes!</h2>
                                 <p>If a dog chews shoes whose shoes does he choose?</p>

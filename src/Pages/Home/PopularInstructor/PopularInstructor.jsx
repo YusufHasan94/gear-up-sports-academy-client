@@ -1,5 +1,5 @@
 import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
-import img from "../../../assets/imges/sports-tools (1).jpg";
+import img from "../../../assets/images/sports-tools (1).jpg";
 
 const PopularInstructor = () => {
     return (

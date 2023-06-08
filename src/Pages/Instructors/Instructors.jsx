@@ -1,5 +1,5 @@
-import React from 'react';
-import img from "../../assets/imges/racket-6308994_1280.jpg";
+
+import img from "../../assets/images/racket-6308994_1280.jpg";
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const Instructors = () => {

@@ -1,18 +1,45 @@
 [
     {
-        "id": 1,
-        "image":"https://img.freepik.com/premium-photo/full-shot-kids-playing-football_23-2149270977.jpg?w=740"
+        "name": "Cricket",
+        "image": "https://media.istockphoto.com/id/177427917/photo/close-up-of-red-cricket-ball-and-bat-sitting-on-grass.jpg?s=1024x1024&w=is&k=20&c=prwXq6gId0T2Lalr1SvTVZWgboWo6siTQmW2PJJ2ZkY=",
+        "instructorName":"Mark Donald",
+        "totalSeat": 50,
+        "price":5000,
+        "duration": "12 Month"
     },{
-        "id": 2,
-        "image":"https://img.freepik.com/free-photo/sports-teacher-with-her-students_23-2149070761.jpg?w=740&t=st=1686216124~exp=1686216724~hmac=1ebb99675e26bb247d86c47407c918e9df23976385159a64fe3187bd57dc83cf"
+        "name": "Football",
+        "image": "https://media.istockphoto.com/id/1251722555/photo/soccer-player-dribbling-young-footballer-in-run-with-ball-boys-kicking-sports-soccer-game-on.jpg?s=1024x1024&w=is&k=20&c=WyJLEYfcf0W8_RbqhqPH_o4ii1Lnfnlkcj0KFJsX9lQ=",
+        "instructorName":"Josef Hussy",
+        "totalSeat": 40,
+        "price":4000,
+        "duration": "12 Month"
     },{
-        "id": 3,
-        "image":"https://img.freepik.com/free-photo/schoolboy-solving-puzzle-class_23-2147663932.jpg?w=740&t=st=1686216288~exp=1686216888~hmac=70657f4b54dc29c8d2ee1c8dfdca7522958a54b80a893b2d103bf85be1ce2faa"
+        "name": "Basketball",
+        "image": "https://media.istockphoto.com/id/492629987/photo/scoring-the-winning-points-at-a-basketball-game.jpg?s=1024x1024&w=is&k=20&c=eyJoraLAZr6dZM8k9fTTgOFwEhfUzCceUZeOXrcWrX0=",
+        "instructorName":"Stiven Joe",
+        "totalSeat": 45,
+        "price": 3500,
+        "duration": "6 Month"
     },{
-        "id": 4,
-        "image":"https://img.freepik.com/free-photo/young-kids-playing-chess-together_23-2149432890.jpg?w=740&t=st=1686216232~exp=1686216832~hmac=dae5b3843eaceddaa6c375afea5edb10089a53d3631b95df0393e16a8275d1a5"
+        "name": "Tennis",
+        "image": "https://media.istockphoto.com/id/1171084311/photo/tennis-rackets-and-balls-leaned-against-the-net.jpg?s=1024x1024&w=is&k=20&c=Kn9RogGA83PWw19T6GPMTrCx3OOUnjkh8AUjlN8Rw70=",
+        "instructorName":"Mikel Hussy",
+        "totalSeat": 20,
+        "price": 3000,
+        "duration": "12 Month"
     },{
-        "id": 5,
-        "image":"https://img.freepik.com/premium-photo/portrait-cute-little-girl-playing-tennis_493343-25302.jpg?w=740"
+        "name": "Rubik's Cube",
+        "image": "https://media.istockphoto.com/id/484170527/photo/hands-holding-color-cube.jpg?s=1024x1024&w=is&k=20&c=gX20IjpjgNZ9VBFiCB_KU7nEkqFOlwfOOD_-IuekGLU=",
+        "instructorName":"Bill Gates",
+        "totalSeat": 15,
+        "price": 2000,
+        "duration": "4 Month"
+    },{
+        "name": "Chess",
+        "image": "https://media.istockphoto.com/id/111993299/photo/chess-game-strategy-and-decision-making.jpg?s=1024x1024&w=is&k=20&c=rI05OD1U_CyvRV5QPR1FuBD4mJSYfmkqsOrOzLdBOR0=",
+        "instructorName":"Josef Cartoz",
+        "totalSeat": 10,
+        "price":1500,
+        "duration": "4 Month"
     }
 ]

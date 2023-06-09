@@ -4,12 +4,12 @@ import logo from "../../assets/logo.png"
 const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-rose-100 text-base-content rounded w-full">
-            <div className="w-full flex justify-around">
-                <div>
-                    <img src={logo} alt="" className="w-36"/>
-                    <h1 className="font-semibold text-4xl text-start">GearUP<br />Sports Academy</h1>
+            <div className="w-full lg:flex  justify-around gap-4">
+                <div className="flex flex-col justify-center items-center">
+                    <img src={logo} alt="" className="w-24 lg:w-36"/>
+                    <h1 className="font-semibold text-4xl lg:text-start">GearUP<br />Sports Academy</h1>
                 </div>
-                <div className="text-xl font-semibold flex gap-4">
+                <div className="text-xl font-semibold flex flex-col lg:flex-row gap-4 text-start lg:justify-center w-full">
                     <Link to="/" className="hover:text-gray-600">Home</Link>
                     <Link to="/instructors" className="hover:text-gray-600">Instructors</Link>
                     <Link to="/classes" className="hover:text-gray-600">Classes</Link>
@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
             </div> 
             <div>
-                <p className="text-lg">Copyright © 2023 - All right reserved by GearUP Sports Academy</p>
+                <p className="lg:text-lg">Copyright © 2023 - All right reserved by GearUP Sports Academy</p>
             </div>
         </footer>
     );

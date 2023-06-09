@@ -1,15 +1,19 @@
 import { useForm } from "react-hook-form";
 import login from "../../assets/login.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
-import { FaGoogle, FaRegEye } from "react-icons/fa"
+import { FaGoogle } from "react-icons/fa"
 
 const Login = () => {
     const { register, handleSubmit, reset, formState:{errors} } = useForm();
     const {loginUser, signInWithGoogle} = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    
     const onSubmit = data => {
         loginUser(data.email, data.password)
         .then(result=>{
@@ -21,6 +25,7 @@ const Login = () => {
                 text: 'Login Successful'
               })
             reset();
+            navigate(from, {replace:true});
         })
         .catch(error => {
             console.log(error);

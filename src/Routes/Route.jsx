@@ -8,7 +8,10 @@ import Home from "../Pages/Home/Home/Home";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import NotFound from "../Pages/NotFound/NOtFound";
-import Dashboard from "../Pages/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import SelectedClasses from "../Pages/Dashboard/User/SelectedClasses/SelectedClasses";
+import EnrolledClasses from "../Pages/Dashboard/User/EnrolledClasses/EnrolledClasses";
 
 export const router = createBrowserRouter([
     {
@@ -38,10 +41,14 @@ export const router = createBrowserRouter([
     },
     {
       path: "/dashboard",
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
-          
+          path: "/dashboard/selectedClasses",
+          element: <SelectedClasses></SelectedClasses>
+        },{
+          path: "/dashboard/enrolledClasses",
+          element: <EnrolledClasses></EnrolledClasses>
         }
       ]
     },

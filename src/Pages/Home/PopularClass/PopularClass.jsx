@@ -23,18 +23,27 @@ const PopularClass = () => {
                     clickable: true,
                     }}
                     breakpoints={{
-                        '@0.00': {
+                        320: {
                             slidesPerView: 1,
                             spaceBetween: 10,
-                        },
-                        '@0.75': {
+                        }, 375: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },425: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },768: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },1024: {
                             slidesPerView: 2,
                             spaceBetween: 20,
-                        },
-                        '@1.00': {
+                        },1440: {
                             slidesPerView: 3,
                             spaceBetween: 30,
                         }
+
+                        
                     }}
                     modules={[Pagination]}
                 >

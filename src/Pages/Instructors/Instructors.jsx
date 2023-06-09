@@ -15,10 +15,10 @@ const Instructors = () => {
             <div>
                 <SectionTitle heading="Our instructors"></SectionTitle>
             </div>
-            <div className='my-10 grid lg:grid-cols-3 gap-4'>
+            <div className='my-10 grid lg:grid-cols-3 gap-4 justify-items-center'>
                 {
                     instructors.map(data=>(
-                        <div key={data._id} className="card w-96 bg-base-100 shadow-xl">
+                        <div key={data._id} className="card w-80 lg:w-96 bg-base-100 shadow-xl">
                             <figure><img src={data.image} alt="Shoes" className="lg:h-64" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{data.name}</h2>

@@ -19,7 +19,7 @@ const Navbar = () => {
             {
                 user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:''
             }
-            <li><Link to="/">Dashboard</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
         </>:
             <li><Link to="/login">Log In</Link></li>

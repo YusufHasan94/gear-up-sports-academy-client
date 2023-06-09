@@ -8,6 +8,7 @@ import Home from "../Pages/Home/Home/Home";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import NotFound from "../Pages/NotFound/NOtFound";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,15 @@ export const router = createBrowserRouter([
             element: <Classes></Classes>
         },
 
+      ]
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          
+        }
       ]
     },
     {

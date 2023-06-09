@@ -1,25 +1,46 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import reg from "../../assets/register.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Registration = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState:{errors} } = useForm();
     const {createUser, updateUserInfo} = useContext(AuthContext);
+    const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate();
     const onSubmit = data => {
         if(data.password === data.confirmPassword){
             createUser(data.email, data.password)
             .then(result =>{
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                updateUserInfo(data.firstName, data.photoURL)
+                updateUserInfo(data.name, data.photoURL)
                 .then(()=>{
-                    reset();
+                    const user = {name: data.name, email: data.email};
+                    fetch('http://localhost:5000/users',{
+                        method: 'POST',
+                        headers:{
+                            'content-type':'application/json'
+                        },
+                        body: JSON.stringify(user)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            reset();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Congratulations',
+                                text: 'Registration Successful'
+                            })    
+                            navigate('/');                    
+                        }
+                    })
                 })
+                .catch(err => console.log(err))
             })
-            console.log(data.firstName);
-
         }
     };
     return (
@@ -36,31 +57,47 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" {...register("firstName")} className="input input-bordered w-full" />
+                                <input type="text" {...register("name", {required : true})} className="input input-bordered w-full" />
+                                {errors.name && <span className="text-red-900">*Required</span> }
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" {...register("email")} className="input input-bordered w-full" />
+                                <input type="email" {...register("email", {required : true})} className="input input-bordered w-full" />
+                                {errors.email && <span className="text-red-900">*Required</span> }
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input type="text" {...register("photoURL")} className="input input-bordered w-full"/>
+                                <input type="text" {...register("photoURL", {required : true})} className="input input-bordered w-full"/>
+                                {errors.photoURL && <span className="text-red-900">*Required</span> }
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password")} className="input input-bordered w-full" />
+                                <input type={showPass?'text':'password'} {...register("password", {
+                                    required : true, minLength: 6, pattern: /(?=.*[A-Z])(?=.*[!@#$%*])/ 
+                                    })} className="input input-bordered w-full" />
+                                {errors.password?.type === 'required' && <span className="text-red-900">*Required</span> }
+                                {errors.password?.type === 'minLength' && <span className="text-red-900">*password must be 6 digit or longer</span> }
+                                {errors.password?.type === 'pattern' && <span className="text-red-900">*password must be one capital, one special character</span> }
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password" {...register("confirmPassword")} className="input input-bordered w-full" />
+                                <input type={showPass?'text':'password'} {...register("confirmPassword", {required : true})} className="input input-bordered w-full" />
+                                {errors.password?.type === 'required' && <span className="text-red-900">*Required</span> }
+                                {errors.password  != errors.confirmPassword && <span className="text-red-900">*both password must be same</span> }
+                            </div>
+                            <div>
+                                <label className="label justify-start">
+                                    <input type="checkbox" name="" id="showPass" checked={showPass} onChange={()=>setShowPass(!showPass)} className="mr-1"/>
+                                    <span>Show password</span>
+                                </label>
                             </div>
                             <div className="mt-4"> 
                                 <h1>Already have an account? Please <Link to="/login" className="text-blue-800 font-semibold">Log In</Link> here</h1>

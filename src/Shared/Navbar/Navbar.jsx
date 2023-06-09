@@ -17,8 +17,7 @@ const Navbar = () => {
         <li><Link to="/classes">Classes</Link></li>
         {user? <>
             {
-                user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:
-                <img src="" alt="" className="w-10 rounded-full bg-slate-300" />
+                user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:''
             }
             <li><Link to="/">Dashboard</Link></li>
             <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>

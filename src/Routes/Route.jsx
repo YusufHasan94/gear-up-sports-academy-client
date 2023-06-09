@@ -12,6 +12,13 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import SelectedClasses from "../Pages/Dashboard/User/SelectedClasses/SelectedClasses";
 import EnrolledClasses from "../Pages/Dashboard/User/EnrolledClasses/EnrolledClasses";
+import Payment from "../Pages/Dashboard/User/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/User/Payment/PaymentHistory";
+import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
+import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
+import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
+import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
+import TotalStudents from "../Pages/Dashboard/Instructor/TotalStudents/TotalStudents";
 
 export const router = createBrowserRouter([
     {
@@ -49,6 +56,31 @@ export const router = createBrowserRouter([
         },{
           path: "/dashboard/enrolledClasses",
           element: <EnrolledClasses></EnrolledClasses>
+        },{
+          path: "/dashboard/payment",
+          element: <Payment></Payment>
+        },{
+          path: "/dashboard/paymentHistory",
+          element: <PaymentHistory></PaymentHistory>
+        },
+        //admin route
+        {
+          path: "/dashboard/admin/manageClasses",
+          element: <ManageClasses></ManageClasses>
+        },{
+          path: "/dashboard/admin/manageUsers",
+          element: <ManageUser></ManageUser>
+        },
+        //instructor route
+        {
+          path: "/dashboard/instructor/addClass",
+          element: <AddClass></AddClass>
+        },{
+          path: "/dashboard/instructor/myClasses",
+          element: <MyClasses></MyClasses>
+        },{
+          path: "/dashboard/instructor/totalStudents",
+          element: <TotalStudents></TotalStudents>
         }
       ]
     },

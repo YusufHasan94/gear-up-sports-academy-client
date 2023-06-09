@@ -2,6 +2,7 @@ import { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FaCartPlus } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -19,7 +20,7 @@ const Navbar = () => {
             {
                 user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:''
             }
-            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/dashboard" className="text-xl bg-rose-500 mx-2 text-white"><FaCartPlus></FaCartPlus>0</Link></li>
             <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
         </>:
             <li><Link to="/login">Log In</Link></li>

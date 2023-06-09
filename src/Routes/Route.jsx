@@ -52,16 +52,16 @@ export const router = createBrowserRouter([
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
-          path: "/dashboard/selectedClasses",
+          path: "/dashboard/user/selectedClasses",
           element: <SelectedClasses></SelectedClasses>
         },{
-          path: "/dashboard/enrolledClasses",
+          path: "/dashboard/user/enrolledClasses",
           element: <EnrolledClasses></EnrolledClasses>
         },{
-          path: "/dashboard/payment",
+          path: "/dashboard/user/payment",
           element: <Payment></Payment>
         },{
-          path: "/dashboard/paymentHistory",
+          path: "/dashboard/user/paymentHistory",
           element: <PaymentHistory></PaymentHistory>
         },
         //admin route

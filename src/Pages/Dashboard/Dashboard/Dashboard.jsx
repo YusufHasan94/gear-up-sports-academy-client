@@ -3,11 +3,13 @@ import { FaBars, FaChalkboardTeacher, FaClipboardList, FaHistory, FaHome, FaList
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext);
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     return (
         <div className="m-4">
             <div className="">
@@ -31,15 +33,19 @@ const Dashboard = () => {
                                 <Link to="/dashboard/admin/manageClasses" className="flex items-center gap-2"><FaUserCog></FaUserCog> Manage Classes</Link>
                                 <Link to="/dashboard/admin/manageUsers" className="flex items-center gap-2"><FaUserEdit></FaUserEdit> Manage Users</Link>
                             </>:
+                            isInstructor?
                             <>
-                                <Link to="/dashboard/selectedClasses" className="flex items-center gap-2"><FaLocationArrow></FaLocationArrow> Selected Classes</Link>
-                                <Link to="/dashboard/enrolledClasses" className="flex items-center gap-2"><FaList></FaList> Enrolled Classes</Link>
-                                <Link to="/dashboard/paymentHistory" className="flex items-center gap-2"><FaHistory></FaHistory> Payment History</Link>
-                                
                                 <Link to="/dashboard/instructor/addClass" className="flex items-center gap-2"><FaRegEdit></FaRegEdit> Add a Class</Link>
                                 <Link to="/dashboard/instructor/myClasses" className="flex items-center gap-2"><FaClipboardList></FaClipboardList> My Classes</Link>
                                 <Link to="/dashboard/instructor/totalStudents" className="flex items-center gap-2"><FaUsers></FaUsers> Total Students</Link>
+                            </>:
+                            <>
+                                <Link to="/dashboard/user/selectedClasses" className="flex items-center gap-2"><FaLocationArrow></FaLocationArrow> Selected Classes</Link>
+                                <Link to="/dashboard/user/enrolledClasses" className="flex items-center gap-2"><FaList></FaList> Enrolled Classes</Link>
+                                <Link to="/dashboard/user/paymentHistory" className="flex items-center gap-2"><FaHistory></FaHistory> Payment History</Link>
                             </>
+                        
+
                         }
                         <div className="border border-white"></div> 
                         <Link to="/" className="flex items-center gap-2" ><FaHome></FaHome> Home</Link>                    

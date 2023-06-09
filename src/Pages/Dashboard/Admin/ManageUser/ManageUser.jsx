@@ -56,14 +56,14 @@ const ManageUser = () => {
             <div>
             <div className="overflow-x-auto">
                 <table className="table text-lg my-5">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Email address</th>
-                        <th>Action</th>
-                    </tr>
+                    <thead className="text-lg">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Email address</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {

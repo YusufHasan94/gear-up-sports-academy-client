@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
     let serial = 1;
@@ -9,7 +10,44 @@ const ManageUser = () => {
         .then(res => res.json())
         .then(data => SetRegisteredUser(data))
         .catch(error=> console.log(error))
-    },[])
+    },[]);
+    const updateToAdmin = user=>{
+        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user.name} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+        .catch(error => console.log(error))
+    }
+    
+    const updateToInstructor = user=>{
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user.name} is an Instructor Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+        .catch(error => console.log(error))
+    }
     return (
         <div>
             <div>
@@ -29,15 +67,15 @@ const ManageUser = () => {
                     </thead>
                     <tbody>
                         {
-                            registeredUsers.map(data=> (
-                                <tr className="bg-base-200" key={data._id}>
+                            registeredUsers.map(user=> (
+                                <tr className="bg-base-200" key={user._id}>
                                     <th>{serial++}</th>
-                                    <td>{data.name}</td>
-                                    <td><img src={data.image} className="w-14 rounded-full" alt="" /></td>
-                                    <td>{data.email}</td>
+                                    <td>{user.name}</td>
+                                    <td><img src={user.image} className="w-14 rounded-full" alt="" /></td>
+                                    <td>{user.email}</td>
                                     <td className="flex gap-4 justify-center">
-                                        <button className="btn bg-rose-500 text-white hover:text-black">Make Admin</button> |
-                                        <button className="btn bg-rose-500 text-white hover:text-black">Make Instructor</button>
+                                        <button className="btn bg-rose-500 text-white hover:text-black" onClick={()=>updateToAdmin(user)}>Make Admin</button> |
+                                        <button className="btn bg-rose-500 text-white hover:text-black" onClick={()=>updateToInstructor(user)}>Make Instructor</button>
                                     </td>
                                 </tr>
                             ))

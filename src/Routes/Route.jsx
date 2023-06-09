@@ -19,6 +19,7 @@ import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
 import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
 import TotalStudents from "../Pages/Dashboard/Instructor/TotalStudents/TotalStudents";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -66,10 +67,10 @@ export const router = createBrowserRouter([
         //admin route
         {
           path: "/dashboard/admin/manageClasses",
-          element: <ManageClasses></ManageClasses>
+          element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },{
           path: "/dashboard/admin/manageUsers",
-          element: <ManageUser></ManageUser>
+          element: <AdminRoute><ManageUser></ManageUser></AdminRoute>
         },
         //instructor route
         {

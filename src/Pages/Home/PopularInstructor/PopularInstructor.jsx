@@ -21,7 +21,7 @@ const PopularInstructor = () => {
                                 <h2 className="card-title">{data.name}</h2>
                                 <p><span className="font-semibold">Email: </span> {data.email}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn bg-[#c74a73] text-white hover:text-black">View Details</button>
+                                    {/* <button className="btn bg-[#c74a73] text-white hover:text-black">View Details</button> */}
                                 </div>
                             </div>
                         </div>

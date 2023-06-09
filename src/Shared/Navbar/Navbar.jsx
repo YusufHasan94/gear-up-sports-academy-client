@@ -40,7 +40,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex gap-5">
                     <img src={logo} className="w-28" alt="" />
-                    <h1 className="text-xl font-semibold text-white">Gear UP<br />Sports Academy</h1>
+                    <h1 className="text-xl font-semibold text-white">GearUP<br />Sports Academy</h1>
                 </div>
             </div>
             <div className="hidden lg:flex lg:ms-72">

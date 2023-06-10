@@ -15,7 +15,7 @@ const PopularClass = () => {
     return (
         <div className='my-10'>
             <SectionTitle heading="Popular Class"></SectionTitle>
-            <div className='my-10 mx-4'>
+            <div className='my-10 mx-10 md:mx-4'>
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={30}
@@ -33,11 +33,11 @@ const PopularClass = () => {
                             slidesPerView: 1,
                             spaceBetween: 10,
                         },768: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        },1024: {
                             slidesPerView: 2,
                             spaceBetween: 20,
+                        },1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
                         },1440: {
                             slidesPerView: 3,
                             spaceBetween: 30,
@@ -50,7 +50,7 @@ const PopularClass = () => {
                     {
                         classes.map(data => (
                             <SwiperSlide key={data._id}>
-                                <div className="card w-96 bg-base-100 shadow-xl">
+                                <div className="card w-80 bg-base-100 shadow-xl">
                                     <figure><img src={data.image} alt="Shoes" className='h-64' /></figure>
                                     <div className="card-body">
                                         <h2 className="card-title">{data.name}</h2>

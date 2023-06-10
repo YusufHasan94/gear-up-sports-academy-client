@@ -4,8 +4,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
+import dynamicTitle from "../../hooks/dynamicTitle";
 
 const Classes = () => {
+    dynamicTitle('Classes');
     const {user} = useContext(AuthContext);
     const [classes, setClasses] = useState([]);
     const [,refetch] = useCart();

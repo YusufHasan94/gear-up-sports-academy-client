@@ -4,8 +4,10 @@ import reg from "../../assets/register.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import dynamicTitle from "../../hooks/dynamicTitle";
 
 const Registration = () => {
+    dynamicTitle('Registration');
     const { register, handleSubmit, reset, formState:{errors} } = useForm();
     const {createUser, updateUserInfo, logOut} = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);

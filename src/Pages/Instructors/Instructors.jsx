@@ -1,8 +1,10 @@
 
 import { useEffect, useState } from "react";
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
+import dynamicTitle from "../../hooks/dynamicTitle";
 
 const Instructors = () => {
+    dynamicTitle('Instructors');
     const [instructors, setInstructors] = useState([]);
     useEffect(()=>{
         fetch("http://localhost:5000/instructors")

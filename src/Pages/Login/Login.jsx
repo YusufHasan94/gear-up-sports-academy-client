@@ -5,8 +5,10 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaGoogle } from "react-icons/fa"
+import dynamicTitle from "../../hooks/dynamicTitle";
 
 const Login = () => {
+    dynamicTitle('Log In');
     const { register, handleSubmit, reset, formState:{errors} } = useForm();
     const {loginUser, signInWithGoogle} = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);

@@ -4,9 +4,11 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
+import dynamicTitle from "../../../hooks/dynamicTitle";
 
 
 const Dashboard = () => {
+    dynamicTitle('Dashboard');
     const {user} = useContext(AuthContext);
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();

@@ -1,17 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaCartPlus } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext); 
+    const [cart] = useCart();
     const handleLogOut = ()=>{
         logOut()
         .then(()=>{})
         .catch(error => console.log(error))
     }
+
     const menuItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructors">Instructors</Link></li>
@@ -20,7 +23,7 @@ const Navbar = () => {
             {
                 user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:''
             }
-            <li><Link to="/dashboard" className="text-xl bg-rose-500 mx-2 text-white"><FaCartPlus></FaCartPlus>0</Link></li>
+            <li><Link to="/dashboard" className="text-xl bg-rose-500 mx-2 text-white"><FaCartPlus></FaCartPlus>{cart?.length || 0}</Link></li>
             <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
         </>:
             <li><Link to="/login">Log In</Link></li>

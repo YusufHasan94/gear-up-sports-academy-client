@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from "react";
-import img from "../../assets/images/racket-6308994_1280.jpg";
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 
 const Instructors = () => {

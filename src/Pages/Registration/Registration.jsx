@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const Registration = () => {
     const { register, handleSubmit, reset, formState:{errors} } = useForm();
-    const {createUser, updateUserInfo} = useContext(AuthContext);
+    const {createUser, updateUserInfo, logOut} = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const onSubmit = data => {
@@ -34,7 +34,8 @@ const Registration = () => {
                                 icon: 'success',
                                 title: 'Congratulations',
                                 text: 'Registration Successful'
-                            })    
+                            })
+                            logOut();   
                             navigate('/');                    
                         }
                     })

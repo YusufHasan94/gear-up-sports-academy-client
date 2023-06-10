@@ -39,7 +39,6 @@ const Dashboard = () => {
                             <>
                                 <Link to="/dashboard/instructor/addClass" className="flex items-center gap-2"><FaRegEdit></FaRegEdit> Add a Class</Link>
                                 <Link to="/dashboard/instructor/myClasses" className="flex items-center gap-2"><FaClipboardList></FaClipboardList> My Classes</Link>
-                                <Link to="/dashboard/instructor/totalStudents" className="flex items-center gap-2"><FaUsers></FaUsers> Total Students</Link>
                             </>:
                             <>
                                 <Link to="/dashboard/user/selectedClasses" className="flex items-center gap-2"><FaLocationArrow></FaLocationArrow> Selected Classes</Link>

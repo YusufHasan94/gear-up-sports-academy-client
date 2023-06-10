@@ -74,8 +74,8 @@ const ManageUser = () => {
                                     <td><img src={user.image} className="w-14 rounded-full" alt="" /></td>
                                     <td>{user.email}</td>
                                     <td className="flex gap-4 justify-center">
-                                        <button className="btn bg-rose-500 text-white hover:text-black" onClick={()=>updateToAdmin(user)}>Make Admin</button> |
-                                        <button className="btn bg-rose-500 text-white hover:text-black" onClick={()=>updateToInstructor(user)}>Make Instructor</button>
+                                        <button className="btn btn-sm bg-rose-500 text-white hover:text-black" onClick={()=>updateToAdmin(user)}>Make Admin</button> |
+                                        <button className="btn btn-sm bg-rose-500 text-white hover:text-black" onClick={()=>updateToInstructor(user)}>Make Instructor</button>
                                     </td>
                                 </tr>
                             ))

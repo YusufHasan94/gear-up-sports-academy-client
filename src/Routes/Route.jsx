@@ -18,8 +18,8 @@ import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses"
 import ManageUser from "../Pages/Dashboard/Admin/ManageUser/ManageUser";
 import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
-import TotalStudents from "../Pages/Dashboard/Instructor/TotalStudents/TotalStudents";
 import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 export const router = createBrowserRouter([
     {
@@ -75,13 +75,10 @@ export const router = createBrowserRouter([
         //instructor route
         {
           path: "/dashboard/instructor/addClass",
-          element: <AddClass></AddClass>
+          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
         },{
           path: "/dashboard/instructor/myClasses",
-          element: <MyClasses></MyClasses>
-        },{
-          path: "/dashboard/instructor/totalStudents",
-          element: <TotalStudents></TotalStudents>
+          element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute> 
         }
       ]
     },

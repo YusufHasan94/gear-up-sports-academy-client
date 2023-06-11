@@ -1,7 +1,15 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 
 const MyClasses = () => {
     let serial = 1;
+    const [myClasses, setMyClasses] = useState([]);
+    useEffect(()=>{
+        fetch("http://localhost:5000/instructor/classes")
+        .then(res=>res.json())
+        .then(data => setMyClasses(data))
+    },[])
     return (
         <div>
             <div className="overflow-x-auto">
@@ -20,19 +28,23 @@ const MyClasses = () => {
                     </tr>
                     </thead>
                     <tbody className="text-base">
-                    <tr>
-                        <th>{serial++}</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>Cy Ganderton</td>
-                        <td>Blue</td>
-                        <td>Blue</td>
-                        <td>Cy Ganderton</td>
-                        <td className="flex gap-2">
-                            <button className="btn btn-sm text-blue-800"><FaRegEdit></FaRegEdit></button>
-                        </td>
-                    </tr>
+                        {
+                            myClasses.map(data=>(
+                                <tr key={data._id}>
+                                    <th>{serial++}</th>
+                                    <td>{data.className}</td>
+                                    <td><img src={data.classImage} className="w-20 rounded-full" alt="" /></td>
+                                    <td>{}</td>
+                                    <td>{}</td>
+                                    <td>{data.price}</td>
+                                    <td>{data.status}</td>
+                                    <td>{}</td>
+                                    <td className="flex gap-2">
+                                        <button className="btn btn-sm text-blue-800"><FaRegEdit></FaRegEdit></button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>

@@ -57,7 +57,7 @@ const ManageUser = () => {
             <div className="overflow-x-auto">
                 <table className="table text-lg my-5">
                     <thead className="text-lg">
-                        <tr>
+                        <tr className="text-cente">
                             <th>#</th>
                             <th>Name</th>
                             <th>Image</th>
@@ -68,12 +68,12 @@ const ManageUser = () => {
                     <tbody>
                         {
                             registeredUsers.map(user=> (
-                                <tr className="bg-base-200" key={user._id}>
+                                <tr key={user._id}>
                                     <th>{serial++}</th>
                                     <td>{user.name}</td>
                                     <td><img src={user.image} className="w-14 rounded-full" alt="" /></td>
                                     <td>{user.email}</td>
-                                    <td className="flex gap-4 justify-center">
+                                    <td className="flex gap-4 justify-center items-center">
                                         <button className="btn btn-sm bg-rose-500 text-white hover:text-black" onClick={()=>updateToAdmin(user)}>Make Admin</button> |
                                         <button className="btn btn-sm bg-rose-500 text-white hover:text-black" onClick={()=>updateToInstructor(user)}>Make Instructor</button>
                                     </td>

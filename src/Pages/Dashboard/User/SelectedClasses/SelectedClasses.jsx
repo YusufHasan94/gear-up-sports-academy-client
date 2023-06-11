@@ -1,11 +1,14 @@
 import { FaBitbucket, FaMoneyCheckAlt } from "react-icons/fa";
+import useCart from "../../../../hooks/useCart";
 
 const SelectedClasses = () => {
+    const [cart] = useCart(); 
+    console.log(cart);
+    let serial = 1;
     return (
         <div>
             <div className="overflow-x-auto">
                 <table className="table text-lg">
-                    {/* head */}
                     <thead>
                     <tr>
                         <th>#</th>
@@ -19,23 +22,26 @@ const SelectedClasses = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {/* row 1 */}
-                    <tr className="bg-base-200">
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td><img src="" alt="" /></td>
-                        <td>Quality Control Specialist</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>Blue</td>
-                        <td>
-                            <div className="flex gap-2 text-2xl">
-                                <button><FaMoneyCheckAlt></FaMoneyCheckAlt></button>
-                                |
-                                <button><FaBitbucket></FaBitbucket></button>
-                            </div>
-                        </td>
-                    </tr>
+                        {
+                            cart.map(item=> (
+                                <tr className="bg-base-200" key={item._id}>
+                                    <th>{serial++}</th>
+                                    <td>{item.name}</td>
+                                    <td><img src={item.image} className="w-20 rounded-full" alt="" /></td>
+                                    <td>{item.instructor}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.seat}</td>
+                                    <td>{item.price}</td>
+                                    <td>
+                                        <div className="flex gap-2 text-2xl">
+                                            <button className="text-green-700"><FaMoneyCheckAlt></FaMoneyCheckAlt></button>
+                                            |
+                                            <button className="text-red-900"><FaBitbucket></FaBitbucket></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>

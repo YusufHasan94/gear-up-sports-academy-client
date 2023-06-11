@@ -45,6 +45,13 @@ const Registration = () => {
                 .catch(err => console.log(err))
             })
         }
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Warning',
+                text: 'Both password should be same'
+            })
+        }
     };
     return (
         <div className="hero min-h-screen bg-base-200 py-28">

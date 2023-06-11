@@ -22,7 +22,7 @@ const Classes = () => {
     
     const handleSelectedClass = data =>{
         if(user && user?.email){
-            const cartItem = {classId: data._id, name: data._name, image: data.image, instructor: data.instructorName, price: data.price, email: user.email};
+            const cartItem = {classId: data._id, name: data.name, image: data.image, instructor: data.instructorName, price: data.price, email: user.email};
             fetch('http://localhost:5000/carts',{
                 method: 'POST',
                 headers: {

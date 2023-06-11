@@ -1,7 +1,33 @@
+import { useEffect, useState } from "react";
 import { FaCheck, FaStickyNote, FaTimes } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageClasses = () => {
     let serial = 1;
+    const [reqClass, setReqClasses] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/classes')
+        .then(res => res.json())
+        .then(data=> setReqClasses(data))
+    },[])
+
+    const handleApprove = data=>{
+        fetch(`http://localhost:5000/classes/status/${data._id}`,{
+            method: 'PATCH'
+        })
+            .then(res=> res.json())
+            .then(data => {
+                console.log(data);
+                if(data.modifiedCount){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Successful',
+                        text: `${data.className} class is approved!`
+                      })
+                }
+            })
+    }
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -20,21 +46,25 @@ const ManageClasses = () => {
                     </tr>
                     </thead>
                     <tbody className="text-base">
-                    <tr>
-                        <th>{serial++}</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>Cy Ganderton</td>
-                        <td className="flex gap-2">
-                            <button className="btn btn-sm text-green-800"><FaCheck></FaCheck></button>
-                            <button className="btn btn-sm text-red-800"><FaTimes></FaTimes></button>
-                            <button className="btn btn-sm"><FaStickyNote></FaStickyNote></button>
-                        </td>
-                    </tr>
+                        {
+                            reqClass.map(data=>(
+                                <tr key={data._id}>
+                                    <th>{serial++}</th>
+                                    <td>{data.className}</td>
+                                    <td><img src={data.classImage} className="w-24 rounded-full" alt="" /></td>
+                                    <td>{data.instructorName}</td>
+                                    <td>{data.instructorEmail}</td>
+                                    <td>{data.availableSeat}</td>
+                                    <td>{data.price}</td>
+                                    <td>{}</td>
+                                    <td className="flex gap-2">
+                                        <button className="btn btn-sm text-green-800" onClick={()=> handleApprove(data)}><FaCheck></FaCheck></button>
+                                        <button className="btn btn-sm text-red-800"><FaTimes></FaTimes></button>
+                                        <button className="btn btn-sm"><FaStickyNote></FaStickyNote></button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>

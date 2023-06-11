@@ -2,8 +2,13 @@ import { FaMoneyBillAlt, FaTrash } from "react-icons/fa";
 import useCart from "../../../../hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
+import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
+import { useContext } from "react";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const SelectedClasses = () => {
+    const {user} = useContext(AuthContext);
     const [cart,refetch] = useCart(); 
     let serial = 1;
     const [axiosSecure] = useAxiosSecure();
@@ -16,9 +21,8 @@ const SelectedClasses = () => {
             confirmButtonText: 'Yes',
           }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`http://localhost:5000/carts/${item._id}`)
-                .then(res=>{
-                    console.log(res);
+                axiosSecure.delete(`/carts/${item._id}`)
+                .then(()=>{
                     refetch();
                     Swal.fire({
                         icon: 'success',
@@ -30,9 +34,11 @@ const SelectedClasses = () => {
           })
     }
 
+
     return (
         <div>
-            <div className="overflow-x-auto">
+            <SectionTitle heading={`Selected Classes By ${user?.displayName}`}></SectionTitle>
+            <div className="overflow-x-auto my-10">
                 <table className="table text-lg">
                     <thead>
                     <tr>
@@ -59,7 +65,7 @@ const SelectedClasses = () => {
                                     <td>{item.price}</td>
                                     <td>
                                         <div className="flex gap-2 text-2xl">
-                                            <button className="text-green-700"><FaMoneyBillAlt></FaMoneyBillAlt></button>
+                                            <button className="text-green-700"><Link to="/dashboard/user/payment" item={item._id}><FaMoneyBillAlt></FaMoneyBillAlt></Link></button>
                                             |
                                             <button className="text-red-900" onClick={()=>handleDeleteSelected(item)}><FaTrash></FaTrash></button>
                                         </div>

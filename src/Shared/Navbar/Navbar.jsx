@@ -1,14 +1,18 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaCartPlus } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext); 
     const [cart] = useCart();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     const handleLogOut = ()=>{
         logOut()
         .then(()=>{})
@@ -20,11 +24,14 @@ const Navbar = () => {
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         {user? <>
+            {
+                isAdmin || isInstructor?'':
+                <div className="flex text-2xl items-center gap-2 p-3 rounded-full relative md:mr-4">
+                    <Link to="/dashboard/user/selectedClasses"><FaCartPlus></FaCartPlus></Link>                
+                    <span className="md:absolute top-0 -right-1">{cart?.length || 0}</span>
+                </div>
+            }
 
-            <div className="flex text-2xl items-center gap-2 p-3 rounded-full relative md:mr-4">
-                <Link to="/dashboard"><FaCartPlus></FaCartPlus></Link>                
-                <span className="md:absolute top-0 -right-1">{cart?.length || 0}</span>
-            </div>
             <div className="dropdown dropdown-end text-black">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
@@ -32,7 +39,7 @@ const Navbar = () => {
                     </div>
                 </label>
                 <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/dashboard/home">Dashboard</Link></li>
                     <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
                 </ul>
             </div>

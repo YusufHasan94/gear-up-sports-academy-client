@@ -1,8 +1,10 @@
+import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
 
 const EnrolledClasses = () => {
     return (
         <div>
-            <div className="overflow-x-auto">
+            <SectionTitle heading={`All Enrolled Classes`}></SectionTitle>
+            <div className="overflow-x-auto my-10">
                 <table className="table text-lg">
                     {/* head */}
                     <thead>

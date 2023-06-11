@@ -14,7 +14,8 @@ const MyClasses = () => {
     },[])
     return (
         <div>
-            <div className="overflow-x-auto">
+            <h1 className="text-center md:text-4xl">All Classes Added By Instructor</h1>
+            <div className="overflow-x-auto my-10">
                 <table className="table table-zebra">
                     <thead className="text-base">
                     <tr >

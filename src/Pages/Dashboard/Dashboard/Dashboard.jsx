@@ -1,12 +1,10 @@
 import { useContext } from "react";
-import { FaBars, FaChalkboardTeacher, FaClipboardList, FaGripHorizontal, FaHistory, FaHome, FaList, FaLocationArrow, FaRegEdit, FaSignOutAlt, FaThList, FaUserCog, FaUserEdit, FaUsers } from "react-icons/fa";
+import { FaBars, FaChalkboardTeacher, FaClipboardList, FaGripHorizontal, FaHistory, FaHome, FaList, FaLocationArrow, FaRegEdit, FaSignOutAlt, FaUserEdit } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 import dynamicTitle from "../../../hooks/dynamicTitle";
-import Navbar from "../../../Shared/Navbar/Navbar";
-import Footer from "../../../Shared/Footer/Footer";
 
 
 const Dashboard = () => {

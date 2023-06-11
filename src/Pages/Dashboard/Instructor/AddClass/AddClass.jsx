@@ -37,6 +37,7 @@ const AddClass = () => {
     };
     return (
         <div>
+            <h1 className="text-center md:text-4xl">Add Your Class From Here</h1>
             <div className="flex justify-center items-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="mx-4 w-full md:w-1/2">
                     <div>

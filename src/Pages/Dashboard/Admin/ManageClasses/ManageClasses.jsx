@@ -48,7 +48,8 @@ const ManageClasses = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto">
+            <h1 className="text-center md:text-4xl">Manage Classes By Admin</h1>
+            <div className="overflow-x-auto my-10">
                 <table className="table table-zebra">
                     <thead className="text-base">
                     <tr >

@@ -20,11 +20,22 @@ const Navbar = () => {
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         {user? <>
-            {
-                user?.photoURL?<img src={user.photoURL} alt="" className="w-10 rounded-full"/>:''
-            }
-            <li><Link to="/dashboard" className="text-xl bg-rose-500 mx-2 text-white"><FaCartPlus></FaCartPlus>{cart?.length || 0}</Link></li>
-            <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
+
+            <div className="flex text-2xl items-center gap-2 p-3 rounded-full relative md:mr-4">
+                <FaCartPlus></FaCartPlus>
+                <span className="md:absolute top-0 -right-1">{cart?.length || 0}</span>
+            </div>
+            <div className="dropdown dropdown-end text-black">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                        <img src={user?.photoURL}/>
+                    </div>
+                </label>
+                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/"><button onClick={handleLogOut}>Log Out</button></Link></li>
+                </ul>
+            </div>
         </>:
             <li><Link to="/login">Log In</Link></li>
 

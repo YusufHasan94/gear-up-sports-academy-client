@@ -51,9 +51,9 @@ const PopularClass = () => {
                         classes.map(data => (
                             <SwiperSlide key={data._id}>
                                 <div className="card w-80 bg-base-100 shadow-xl">
-                                    <figure><img src={data.image} alt="Shoes" className='h-64' /></figure>
+                                    <figure><img src={data.classImage} alt="Shoes" className='h-64' /></figure>
                                     <div className="card-body">
-                                        <h2 className="card-title">{data.name}</h2>
+                                        <h2 className="card-title">{data.className}</h2>
                                         <p><span className='font-semibold'>Instructor Name:</span> {data.instructorName}</p>
                                         <div className="card-actions justify-end">
                                         {/* <button className="btn bg-[#c74a73] text-white hover:text-black">View Details</button> */}

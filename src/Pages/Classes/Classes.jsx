@@ -21,6 +21,7 @@ const Classes = () => {
     },[]);
     
     const handleSelectedClass = data =>{
+        console.log(data);
         if(user && user?.email){
             const cartItem = {classId: data._id, name: data.name, image: data.image, instructor: data.instructorName, price: data.price, email: user.email};
             fetch('http://localhost:5000/carts',{
@@ -71,12 +72,11 @@ const Classes = () => {
                 {
                     classes.map(data =>(
                         <div key={data._id} className="card w-80 lg:w-96 bg-base-100 shadow-xl">
-                            <figure><img src={data.image} alt="class" className="h-64" /></figure>
+                            <figure><img src={data.classImage} alt="class" className="h-64" /></figure>
                             <div className="card-body">
-                                <h2 className="card-title">{data.name}</h2>
+                                <h2 className="card-title">{data.className}</h2>
                                 <p><span className="font-semibold">Instructor Name:</span> {data.instructorName}</p>
-                                <p><span className="font-semibold">Available Seats:</span> {data.totalSeat}</p>
-                                <p><span className="font-semibold">Duration:</span> {data.duration}</p>
+                                <p><span className="font-semibold">Available Seats:</span> {data.availableSeat}</p>
                                 <p><span className="font-semibold">Price:</span> {data.price}</p>
                                 <div className="card-actions justify-end">
                                     <button className="btn bg-[#c74a73] text-white hover:text-black" onClick={()=>handleSelectedClass(data)}>Select Course</button>

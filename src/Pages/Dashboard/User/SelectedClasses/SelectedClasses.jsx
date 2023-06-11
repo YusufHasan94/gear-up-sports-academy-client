@@ -28,7 +28,7 @@ const SelectedClasses = () => {
                                     <th>{serial++}</th>
                                     <td>{item.name}</td>
                                     <td><img src={item.image} className="w-20 rounded-full" alt="" /></td>
-                                    <td>{item.instructor}</td>
+                                    <td>{item.instructorName}</td>
                                     <td>{item.email}</td>
                                     <td>{item.seat}</td>
                                     <td>{item.price}</td>

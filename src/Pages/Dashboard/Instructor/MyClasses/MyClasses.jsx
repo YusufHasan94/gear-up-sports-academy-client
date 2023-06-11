@@ -35,7 +35,7 @@ const MyClasses = () => {
                                     <td>{data.className}</td>
                                     <td><img src={data.classImage} className="w-20 rounded-full" alt="" /></td>
                                     <td>{}</td>
-                                    <td>{}</td>
+                                    <td>{data.availableSeat}</td>
                                     <td>{data.price}</td>
                                     <td>{data.status}</td>
                                     <td>{}</td>

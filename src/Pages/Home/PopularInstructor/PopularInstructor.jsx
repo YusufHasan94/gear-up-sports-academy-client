@@ -13,7 +13,7 @@ const PopularInstructor = () => {
             <SectionTitle heading="Popular InsTructors"></SectionTitle>
             <div className='grid lg:grid-cols-3 gap-4 my-10 mx-4 justify-items-center'>
                 {
-                    instructors.map(data =>(
+                    instructors.slice(0,6).map(data =>(
                         <div key={data._id} className="card w-80 lg:w-96 bg-base-100 shadow-xl">
                             <figure><img src={data.image} alt="instructors" className='h-64' /></figure>
                             <div className="card-body">

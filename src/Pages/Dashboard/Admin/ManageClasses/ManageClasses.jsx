@@ -6,7 +6,7 @@ const ManageClasses = () => {
     let serial = 1;
     const [reqClass, setReqClasses] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/classes')
+        fetch('http://localhost:5000/classes/requested')
         .then(res => res.json())
         .then(data=> setReqClasses(data))
     },[])
@@ -45,12 +45,6 @@ const ManageClasses = () => {
             })
     }
 
-    const handleFeedback = event=>{
-        event.preventDefault();
-        const form = event.target;
-        console.log(form.feedback.value);
-
-    }
 
     return (
         <div>
@@ -84,23 +78,13 @@ const ManageClasses = () => {
                                     <td className="flex gap-2">
                                         <button className="btn btn-sm text-green-800" onClick={()=> handleApprove(data)}><FaCheck></FaCheck></button>
                                         <button className="btn btn-sm text-red-800" onClick={()=> handleDeny(data)}><FaTimes></FaTimes></button>
-                                        <button className="btn btn-sm" onClick={()=>window.my_modal_1.showModal()}><FaStickyNote></FaStickyNote></button>
+                                        <button className="btn btn-sm"><FaStickyNote></FaStickyNote></button>
                                     </td>
                                 </tr>
                             ))
                         }
                     </tbody>
                 </table>
-                <dialog id="my_modal_1" className="modal">
-                <form method="dialog" className="modal-box" onSubmit={handleFeedback}>
-                    <h3 className="font-bold text-lg text-center">Give Your Feedback Here!</h3>
-                    <textarea name="feedback" id="" cols=""  rows="5" className="w-full p-4"></textarea>
-                    {/* <input type="submit" value="Submit" className="btn bg-rose-500 text-white modal-action"/> */}
-                    <div className="modal-action">
-                        <button className="btn">Close</button>
-                    </div>
-                </form>
-</dialog>
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ const AddClass = () => {
     const {user, } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: {errors} } = useForm();
     const onSubmit = data => {
-        const newClass = {className: data.className, classImage: data.classImage, instructorName: data.instructorName, instructorEmail: data.instructorName, availableSeat: data.availableSeat, price: data.price}
+        const newClass = {className: data.className, classImage: data.classImage, instructorName: data.instructorName, instructorEmail: data.instructorEmail, availableSeat: data.availableSeat, price: data.price}
         fetch('http://localhost:5000/classes',{
             method: 'POST',
             headers: {

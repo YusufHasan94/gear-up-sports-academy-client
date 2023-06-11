@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import dynamicTitle from "../../hooks/dynamicTitle";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const Classes = () => {
     dynamicTitle('Classes');
@@ -13,6 +15,8 @@ const Classes = () => {
     const [,refetch] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     useEffect(()=>{
         fetch('http://localhost:5000/classes')
@@ -21,9 +25,9 @@ const Classes = () => {
     },[]);
     
     const handleSelectedClass = data =>{
-        console.log(data);
         if(user && user?.email){
-            const cartItem = {classId: data._id, name: data.name, image: data.image, instructor: data.instructorName, price: data.price, email: user.email};
+            const cartItem = {classId: data._id, name: data.className, image: data.classImage, instructorName: data.instructorName, instructorEmail: data.instructorEmail, price: data.price, email: user.email, availableSeat: data.availableSeat};
+            console.log(cartItem);
             fetch('http://localhost:5000/carts',{
                 method: 'POST',
                 headers: {
@@ -39,7 +43,7 @@ const Classes = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Food added on the cart.',
+                        title: 'Class added on the cart.',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -48,7 +52,7 @@ const Classes = () => {
         }
         else{
             Swal.fire({
-                title: 'Please login to order the food',
+                title: 'Please login to Proceed',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -78,9 +82,25 @@ const Classes = () => {
                                 <p><span className="font-semibold">Instructor Name:</span> {data.instructorName}</p>
                                 <p><span className="font-semibold">Available Seats:</span> {data.availableSeat}</p>
                                 <p><span className="font-semibold">Price:</span> {data.price}</p>
-                                <div className="card-actions justify-end">
-                                    <button className="btn bg-[#c74a73] text-white hover:text-black" onClick={()=>handleSelectedClass(data)}>Select Course</button>
-                                </div>
+                                {
+                                    isAdmin?
+                                    <button 
+                                        disabled
+                                        className="btn bg-[#c74a73] text-white hover:text-black" 
+                                        onClick={()=>handleSelectedClass(data)}>Select Course
+                                    </button>:
+                                    isInstructor?
+                                    <button 
+                                        disabled
+                                        className="btn bg-[#c74a73] text-white hover:text-black" 
+                                        onClick={()=>handleSelectedClass(data)}>Select Course
+                                    </button>
+                                    :<button 
+                                    className="btn bg-[#c74a73] text-white hover:text-black" 
+                                    onClick={()=>handleSelectedClass(data)}>Select Course
+                                </button>
+                                }
+                                
                             </div>
                         </div>
                     ))

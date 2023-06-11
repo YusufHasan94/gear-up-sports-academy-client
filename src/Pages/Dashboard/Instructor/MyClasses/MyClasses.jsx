@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const MyClasses = () => {
+    const {user} = useContext(AuthContext);
     let serial = 1;
     const [myClasses, setMyClasses] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/instructor/classes")
+        fetch(`http://localhost:5000/instructor/classes?email=${user?.email}`)
         .then(res=>res.json())
         .then(data => setMyClasses(data))
     },[])

@@ -22,7 +22,7 @@ const Navbar = () => {
         {user? <>
 
             <div className="flex text-2xl items-center gap-2 p-3 rounded-full relative md:mr-4">
-                <FaCartPlus></FaCartPlus>
+                <Link to="/dashboard"><FaCartPlus></FaCartPlus></Link>                
                 <span className="md:absolute top-0 -right-1">{cart?.length || 0}</span>
             </div>
             <div className="dropdown dropdown-end text-black">

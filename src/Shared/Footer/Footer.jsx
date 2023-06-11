@@ -7,7 +7,9 @@ const Footer = () => {
             <div className="w-full lg:flex gap-4">
                 <div className="flex flex-col justify-center items-center lg:items-start lg:w-1/4">
                     <img src={logo} alt="" className="w-24 lg:w-36"/>
-                    <h1 className="font-semibold text-4xl lg:text-start">GearUP<br />Sports Academy</h1>
+                    <h1 className="font-semibold text-4xl lg:text-start mb-1">GearUP<br />Sports Academy</h1>
+                    <p className="text-xl"><span className="font-semibold">Contact Info: </span>+880 1763005200</p>
+                    <p className="text-xl"><span className="font-semibold">Address: </span>Rajshahi, Bangladesh</p>
                 </div>
                 <div className="text-xl font-semibold flex flex-col lg:flex-row gap-4 text-start lg:justify-center w-full lg:w-1/2">
                     <Link to="/" className="hover:text-gray-600">Home</Link>

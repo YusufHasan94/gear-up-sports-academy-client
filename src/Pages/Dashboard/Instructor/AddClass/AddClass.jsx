@@ -77,7 +77,7 @@ const AddClass = () => {
                     </div>
                     <div>
                         <label className="label">
-                            <span className="label-text">Price</span>
+                            <span className="label-text">Price [currency in BDT]</span>
                         </label>
                         <input type="number" {...register("price", {required : true})} className="input input-bordered w-full" />
                         {errors.className && <span className="text-red-900">*Required</span> }

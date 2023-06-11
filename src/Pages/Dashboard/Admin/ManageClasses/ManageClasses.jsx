@@ -15,17 +15,17 @@ const ManageClasses = () => {
         fetch(`http://localhost:5000/classes/status/allow/${data._id}`,{
             method: 'PATCH'
         })
-            .then(res=> res.json())
-            .then(data => {
-                console.log(data);
-                if(data.modifiedCount){
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Class Approved',
-                        text: `Class is approved!`
-                      })
-                }
-            })
+        .then(res=> res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Class Approved',
+                    text: `Class is approved!`
+                    })
+            }
+        })
     }
     
     const handleDeny = data=>{

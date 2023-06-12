@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
-import img from "../../../assets/images/racket-6308994_1280.jpg";
 import { Fade } from "react-awesome-reveal";
 import { useState } from "react";
-import { Rating } from "@smastrom/react-rating";
 
 const TopReview = () => {
     let value=200;

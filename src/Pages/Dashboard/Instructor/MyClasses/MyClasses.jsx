@@ -37,7 +37,7 @@ const MyClasses = () => {
                                     <th>{serial++}</th>
                                     <td>{data.className}</td>
                                     <td><img src={data.classImage} className="w-20 rounded-full" alt="" /></td>
-                                    <td>{}</td>
+                                    <td>0</td>
                                     <td>{data.availableSeat}</td>
                                     <td>{data.price}</td>
                                     <td>{data.status}</td>

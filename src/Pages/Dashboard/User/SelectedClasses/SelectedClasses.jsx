@@ -65,7 +65,7 @@ const SelectedClasses = () => {
                                     <td>{item.price}</td>
                                     <td>
                                         <div className="flex gap-2 text-2xl">
-                                            <button className="text-green-700"><Link to="/dashboard/user/payment" item={item._id}><FaMoneyBillAlt></FaMoneyBillAlt></Link></button>
+                                            <Link to={`/dashboard/user/payment/${item._id}`}><button className="text-green-700"><FaMoneyBillAlt></FaMoneyBillAlt></button></Link>
                                             |
                                             <button className="text-red-900" onClick={()=>handleDeleteSelected(item)}><FaTrash></FaTrash></button>
                                         </div>

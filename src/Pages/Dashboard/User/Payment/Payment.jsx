@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import useCart from "../../../../hooks/useCart";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
-import Swal from "sweetalert2";
 import { ColorRing } from "react-loader-spinner";
 
 //need to provide publishable key

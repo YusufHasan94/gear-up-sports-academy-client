@@ -19,7 +19,7 @@ const Classes = () => {
     const [isInstructor] = useInstructor();
 
     useEffect(()=>{
-        fetch('http://localhost:5000/classes')
+        fetch('https://gear-up-sports-academy-server.vercel.app/classes')
         .then(res=> res.json())
         .then(data => setClasses(data))
     },[]);
@@ -28,7 +28,7 @@ const Classes = () => {
         if(user && user?.email){
             const cartItem = {classId: data._id, name: data.className, image: data.classImage, instructorName: data.instructorName, instructorEmail: data.instructorEmail, price: data.price, email: user.email, availableSeat: data.availableSeat};
             console.log(cartItem);
-            fetch('http://localhost:5000/carts',{
+            fetch('https://gear-up-sports-academy-server.vercel.app/carts',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

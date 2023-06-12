@@ -6,13 +6,13 @@ const ManageUser = () => {
     let serial = 1;
     const [registeredUsers, SetRegisteredUser] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/users")
+        fetch("https://gear-up-sports-academy-server.vercel.app/users")
         .then(res => res.json())
         .then(data => SetRegisteredUser(data))
         .catch(error=> console.log(error))
     },[]);
     const updateToAdmin = user=>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        fetch(`https://gear-up-sports-academy-server.vercel.app/users/admin/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -31,7 +31,7 @@ const ManageUser = () => {
     }
     
     const updateToInstructor = user=>{
-        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+        fetch(`https://gear-up-sports-academy-server.vercel.app/users/instructor/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())

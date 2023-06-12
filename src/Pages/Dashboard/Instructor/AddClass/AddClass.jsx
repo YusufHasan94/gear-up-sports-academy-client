@@ -8,7 +8,7 @@ const AddClass = () => {
     const { register, handleSubmit, reset, formState: {errors} } = useForm();
     const onSubmit = data => {
         const newClass = {className: data.className, classImage: data.classImage, instructorName: data.instructorName, instructorEmail: data.instructorEmail, availableSeat: data.availableSeat, price: data.price}
-        fetch('http://localhost:5000/classes',{
+        fetch('https://gear-up-sports-academy-server.vercel.app/classes',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'

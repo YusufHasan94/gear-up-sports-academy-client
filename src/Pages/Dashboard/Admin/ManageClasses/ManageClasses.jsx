@@ -6,13 +6,13 @@ const ManageClasses = () => {
     let serial = 1;
     const [reqClass, setReqClasses] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/classes/requested')
+        fetch('https://gear-up-sports-academy-server.vercel.app/classes/requested')
         .then(res => res.json())
         .then(data=> setReqClasses(data))
     },[])
 
     const handleApprove = data=>{
-        fetch(`http://localhost:5000/classes/status/allow/${data._id}`,{
+        fetch(`https://gear-up-sports-academy-server.vercel.app/classes/status/allow/${data._id}`,{
             method: 'PATCH'
         })
         .then(res=> res.json())
@@ -29,7 +29,7 @@ const ManageClasses = () => {
     }
     
     const handleDeny = data=>{
-        fetch(`http://localhost:5000/classes/status/deny/${data._id}`,{
+        fetch(`https://gear-up-sports-academy-server.vercel.app/classes/status/deny/${data._id}`,{
             method: 'PATCH'
         })
             .then(res=> res.json())

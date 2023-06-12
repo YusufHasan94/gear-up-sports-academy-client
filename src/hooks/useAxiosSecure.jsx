@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://gear-up-sports-academy-server.vercel.app'
 })
 
 const useAxiosSecure = () => {

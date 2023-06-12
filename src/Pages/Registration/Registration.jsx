@@ -21,7 +21,7 @@ const Registration = () => {
                 updateUserInfo(data.name, data.photoURL)
                 .then(()=>{
                     const user = {name: data.name, email: data.email, image: data.photoURL};
-                    fetch('http://localhost:5000/users',{
+                    fetch('https://gear-up-sports-academy-server.vercel.app/users',{
                         method: 'POST',
                         headers:{
                             'content-type':'application/json'

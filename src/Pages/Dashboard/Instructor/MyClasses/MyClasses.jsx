@@ -8,7 +8,7 @@ const MyClasses = () => {
     let serial = 1;
     const [myClasses, setMyClasses] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/instructor/classes?email=${user?.email}`)
+        fetch(`https://gear-up-sports-academy-server.vercel.app/instructor/classes?email=${user?.email}`)
         .then(res=>res.json())
         .then(data => setMyClasses(data))
     },[])

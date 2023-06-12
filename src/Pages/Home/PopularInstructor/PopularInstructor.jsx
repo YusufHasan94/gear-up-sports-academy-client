@@ -4,7 +4,7 @@ import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 const PopularInstructor = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/instructors")
+        fetch("https://gear-up-sports-academy-server.vercel.app/instructors")
         .then(res=>res.json())
         .then(data=>setInstructors(data))
     },[])

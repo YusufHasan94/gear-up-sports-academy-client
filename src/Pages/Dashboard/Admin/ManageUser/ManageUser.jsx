@@ -62,6 +62,7 @@ const ManageUser = () => {
                             <th>Name</th>
                             <th>Image</th>
                             <th>Email address</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -73,6 +74,7 @@ const ManageUser = () => {
                                     <td>{user.name}</td>
                                     <td><img src={user.image} className="w-14 rounded-full" alt="" /></td>
                                     <td>{user.email}</td>
+                                    <td>{user.role}</td>
                                     <td className="flex gap-4 justify-center items-center">
                                         <button className="btn btn-sm bg-rose-500 text-white hover:text-black" onClick={()=>updateToAdmin(user)}>Make Admin</button> |
                                         <button className="btn btn-sm bg-rose-500 text-white hover:text-black" onClick={()=>updateToInstructor(user)}>Make Instructor</button>

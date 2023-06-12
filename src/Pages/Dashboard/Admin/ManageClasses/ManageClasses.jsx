@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaCheck, FaStickyNote, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ManageClasses = () => {
@@ -79,7 +80,9 @@ const ManageClasses = () => {
                                     <td className="flex gap-2">
                                         <button className="btn btn-sm text-green-800" onClick={()=> handleApprove(data)}><FaCheck></FaCheck></button>
                                         <button className="btn btn-sm text-red-800" onClick={()=> handleDeny(data)}><FaTimes></FaTimes></button>
-                                        <button className="btn btn-sm"><FaStickyNote></FaStickyNote></button>
+                                        <Link to="/dashboard/admin/feedback">
+                                            <button className="btn btn-sm"><FaStickyNote></FaStickyNote></button>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))

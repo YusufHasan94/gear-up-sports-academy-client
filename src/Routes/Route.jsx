@@ -21,6 +21,7 @@ import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import DashboardHome from "../Pages/Dashboard/Dashboard/DashboardHome";
+import Feedback from "../Pages/Dashboard/Admin/ManageClasses/Feedback";
 
 export const router = createBrowserRouter([
     {
@@ -75,6 +76,9 @@ export const router = createBrowserRouter([
         },{
           path: "/dashboard/admin/manageUsers",
           element: <AdminRoute><ManageUser></ManageUser></AdminRoute>
+        },{
+          path: "/dashboard/admin/feedback",
+          element: <AdminRoute><Feedback></Feedback></AdminRoute>
         },
         //instructor route
         {

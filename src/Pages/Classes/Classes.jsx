@@ -81,7 +81,7 @@ const Classes = () => {
                                 <h2 className="card-title">{data.className}</h2>
                                 <p><span className="font-semibold">Instructor Name:</span> {data.instructorName}</p>
                                 <p><span className="font-semibold">Available Seats:</span> {data.availableSeat}</p>
-                                <p><span className="font-semibold">Price:</span> {data.price}</p>
+                                <p><span className="font-semibold">Price:</span> ${data.price}</p>
                                 {
                                     isAdmin?
                                     <button 

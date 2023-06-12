@@ -74,7 +74,10 @@ const CheckoutForm = ({selected, price}) => {
                 data: new Date(), 
                 price: price,
                 selectedClass: selected.name,
-                classId: selected._id
+                selectedClassImage: selected.image,
+                classId: selected._id,
+                instructorName: selected.instructorName,
+                instructorEmail: selected.instructorEmail,
             }
             axiosSecure.post('/payments', payment)
             .then(res => {

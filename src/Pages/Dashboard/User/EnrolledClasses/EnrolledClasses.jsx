@@ -1,6 +1,18 @@
+import { useState } from "react";
 import SectionTitle from "../../../../Shared/SectionTitle/SectionTitle";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const EnrolledClasses = () => {
+    let serial = 1;
+    const {user} = useContext(AuthContext);
+    const [enrolled, setEnrolled] = useState([]);
+    useEffect(()=>{
+        fetch(`https://gear-up-sports-academy-server.vercel.app/enrolled?email=${user?.email}`)
+        .then(res=> res.json())
+        .then(data => setEnrolled(data));
+    },[])
     return (
         <div>
             <SectionTitle heading={`All Enrolled Classes`}></SectionTitle>
@@ -17,14 +29,16 @@ const EnrolledClasses = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {/* row 1 */}
-                    <tr className="bg-base-200">
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td><img src="" alt="" /></td>
-                        <td>Quality Control Specialist</td>
-                        <td>Quality Control Specialist</td>
-                    </tr>
+                        {enrolled.map(data=> (
+                             <tr className="bg-base-200" key={data._id}>
+                                <th>{serial}</th>
+                                <td>{data.selectedClass}</td>
+                                <td><img src={data.selectedClassImage} className="w-20 rounded-full" alt="" /></td>
+                                <td>{data.instructorName}</td>
+                                <td>{data.instructorEmail}</td>
+                            </tr>
+                        ))}
+                   
                     </tbody>
                 </table>
             </div>

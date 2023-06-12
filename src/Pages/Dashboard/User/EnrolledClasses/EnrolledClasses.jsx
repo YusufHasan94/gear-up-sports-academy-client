@@ -31,7 +31,7 @@ const EnrolledClasses = () => {
                     <tbody>
                         {enrolled.map(data=> (
                              <tr className="bg-base-200" key={data._id}>
-                                <th>{serial}</th>
+                                <th>{serial++}</th>
                                 <td>{data.selectedClass}</td>
                                 <td><img src={data.selectedClassImage} className="w-20 rounded-full" alt="" /></td>
                                 <td>{data.instructorName}</td>

@@ -17,7 +17,6 @@ const CheckoutForm = ({selected, price}) => {
     useEffect(()=>{
         axiosSecure.post("/create-payment-intent",{price})
         .then(res => {
-            console.log(res.data.clientSecret);
             setClientSecret(res.data.clientSecret);
         })
     },[])
@@ -45,7 +44,7 @@ const CheckoutForm = ({selected, price}) => {
         }
         else{
             setCardError('');
-            console.log('payment method:', paymentMethod)
+
         }
 
         setProcessing(true);

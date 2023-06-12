@@ -62,7 +62,7 @@ const SelectedClasses = () => {
                                     <td>{item.instructorName}</td>
                                     <td>{item.instructorEmail}</td>
                                     <td>{item.availableSeat}</td>
-                                    <td>{item.price}</td>
+                                    <td>${item.price}</td>
                                     <td>
                                         <div className="flex gap-2 text-2xl">
                                             <Link to={`/dashboard/user/payment/${item._id}`}><button className="text-green-700"><FaMoneyBillAlt></FaMoneyBillAlt></button></Link>

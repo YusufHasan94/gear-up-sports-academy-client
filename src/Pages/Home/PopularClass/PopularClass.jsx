@@ -7,53 +7,47 @@ import { useEffect, useState } from 'react';
 
 const PopularClass = () => {
     const [classes, setClasses] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://gear-up-sports-academy-server.vercel.app/classes')
-        .then(res=> res.json())
-        .then(data => setClasses(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setClasses(data))
+    }, [])
     return (
-        <div className='my-10'>
+        <div className='md:m-10 my-10'>
             <SectionTitle heading="Popular Class"></SectionTitle>
             <div className='my-10 mx-10 md:mx-4'>
                 <Swiper
                     slidesPerView={3}
-                    spaceBetween={30}
+                    spaceBetween={10}
                     pagination={{
-                    clickable: true,
+                        clickable: true,
                     }}
                     breakpoints={{
                         320: {
                             slidesPerView: 1,
-                            spaceBetween: 10,
                         }, 375: {
                             slidesPerView: 1,
-                            spaceBetween: 10,
-                        },425: {
+                        }, 425: {
                             slidesPerView: 1,
-                            spaceBetween: 10,
-                        },768: {
+                        }, 768: {
                             slidesPerView: 2,
-                            spaceBetween: 20,
-                        },1024: {
+                        }, 1024: {
                             slidesPerView: 3,
-                            spaceBetween: 30,
-                        },1440: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
+                        }, 1440: {
+                            slidesPerView: 4,
                         }
 
-                        
+
                     }}
                     modules={[Pagination]}
                 >
                     {
                         classes.map(data => (
-                            <SwiperSlide key={data._id}>
+                            <SwiperSlide key={data._id} style={{display: 'flex', justifyContent: 'center'}}>
                                 <div className="card w-80 bg-base-100 shadow-xl">
-                                    <figure><img src={data.classImage} alt="Shoes" className='h-64' /></figure>
+                                    <figure><img src={data.classImage} alt="Shoes" className='h-64 w-full' /></figure>
                                     <div className="card-body">
-                                        <h2 className="card-title">{data.className}</h2>
+                                        <h2 className="text-center text-xl font-semibold">{data.className}</h2>
                                     </div>
                                 </div>
                             </SwiperSlide>

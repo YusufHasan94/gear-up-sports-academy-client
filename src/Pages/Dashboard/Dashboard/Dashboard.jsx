@@ -20,8 +20,8 @@ const Dashboard = () => {
     }
     
     return (
-        <div className="mx-4">
-            <div className="w-full flex justify-between bg-rose-400 h p-4">
+        <div className="">
+            <div className="w-full flex justify-between bg-rose-400 h p-7">
                 <label htmlFor="my-drawer" className="text-4xl text-white"><FaBars></FaBars></label>
                 <h1 className="text-2xl md:text-4xl font-semibold text-white"><span className="text-green-900">Hello</span> {user?.displayName}</h1>
             </div>

@@ -14,7 +14,7 @@ const TopReview = () => {
     return (
         <div className="my-10">
             <SectionTitle heading="sweet Words"></SectionTitle>
-            <div className="my-10 grid md:grid-cols-4 justify-center gap-10  md:gap-4">
+            <div className="m-10 grid md:grid-cols-4 justify-items-center gap-10  md:gap-4">
                 {
                     reviews.map(review => (
                         <Fade delay={value+400} key={review._id}>
@@ -25,7 +25,8 @@ const TopReview = () => {
                                     <p>{review.comment}</p>
                                 </div>
                             </div>
-                        </Fade>))
+                        </Fade>
+                    ))
                 }
                 
             </div>

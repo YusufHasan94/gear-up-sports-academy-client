@@ -68,15 +68,15 @@ const Classes = () => {
     }
 
     return (
-        <div className="py-32">
+        <div className="py-32 max-w-screen-2xl mx-auto">
             <div>
                 <SectionTitle heading="Our Classes"></SectionTitle>
             </div>
-            <div className="my-10 grid lg:grid-cols-3 gap-4 justify-items-center">
+            <div className="my-10 md:mx-20 grid lg:grid-cols-3 gap-4 justify-items-center">
                 {
                     classes.map(data =>(
                         <div key={data._id} className="card w-80 lg:w-96 bg-base-100 shadow-xl">
-                            <figure><img src={data.classImage} alt="class" className="h-64" /></figure>
+                            <figure><img src={data.classImage} alt="class" className="h-64 w-full" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{data.className}</h2>
                                 <p><span className="font-semibold">Instructor Name:</span> {data.instructorName}</p>

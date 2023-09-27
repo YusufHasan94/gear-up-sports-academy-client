@@ -11,7 +11,7 @@ const PopularInstructor = () => {
     return (
         <div className='my-10'>
             <SectionTitle heading="Popular InsTructors"></SectionTitle>
-            <div className='grid lg:grid-cols-3 gap-4 my-10 mx-4 justify-items-center'>
+            <div className='grid lg:grid-cols-3 md:gap-y-10 m-10 gap-5 md:gap-0 justify-items-center'>
                 {
                     instructors.slice(0,6).map(data =>(
                         <div key={data._id} className="card w-80 lg:w-96 bg-base-100 shadow-xl">

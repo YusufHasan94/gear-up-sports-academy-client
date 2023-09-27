@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ManageClasses = () => {
-    let serial = 1;
     const [reqClass, setReqClasses] = useState([]);
     useEffect(()=>{
         fetch('https://gear-up-sports-academy-server.vercel.app/classes/requested')
         .then(res => res.json())
         .then(data=> setReqClasses(data))
     },[])
+    console.log(reqClass);
 
     const handleApprove = data=>{
         fetch(`https://gear-up-sports-academy-server.vercel.app/classes/status/allow/${data._id}`,{
@@ -48,47 +48,35 @@ const ManageClasses = () => {
 
 
     return (
-        <div>
+        <div className="max-w-screen-2xl mx-auto">
             <h1 className="text-center md:text-4xl">Manage Classes By Admin</h1>
-            <div className="overflow-x-auto my-10">
-                <table className="table table-zebra">
-                    <thead className="text-base">
-                    <tr >
-                        <th>#</th>
-                        <th>Class Name</th>
-                        <th>Class Image</th>
-                        <th>Instructor Name</th>
-                        <th>Instructor Email</th>
-                        <th>Available Seat</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody className="text-base">
-                        {
-                            reqClass.map(data=>(
-                                <tr key={data._id}>
-                                    <th>{serial++}</th>
-                                    <td>{data.className}</td>
-                                    <td><img src={data.classImage} className="w-24 rounded-full" alt="" /></td>
-                                    <td>{data.instructorName}</td>
-                                    <td>{data.instructorEmail}</td>
-                                    <td>{data.availableSeat}</td>
-                                    <td>{data.price}</td>
-                                    <td>{data.status}</td>
-                                    <td className="flex gap-2">
-                                        <button className="btn btn-sm text-green-800" onClick={()=> handleApprove(data)}><FaCheck></FaCheck></button>
-                                        <button className="btn btn-sm text-red-800" onClick={()=> handleDeny(data)}><FaTimes></FaTimes></button>
-                                        <Link to="/dashboard/admin/feedback">
-                                            <button className="btn btn-sm"><FaStickyNote></FaStickyNote></button>
-                                        </Link>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center m-10">
+                {
+                    reqClass.map(data=>(
+                        <div key={data._id} className="card min-h-fit w-80 lg:w-96 bg-base-100 shadow-xl">
+                            <figure>
+                                <img src={data.classImage} alt="" className="h-64 w-full" />
+                            </figure>
+                            <div className="card-body">
+                                <div>
+                                    <h1 className="text-xl font-semibold">Class Name: {data.className}</h1>
+                                    <h1>Instructor Name: {data.instructorName}</h1>
+                                    <h1>Instructor Email: {data.instructorEmail}</h1>
+                                    <h1>Price: {data.price} $</h1>
+                                    <h1>Seat: {data.availableSeat}</h1>
+                                    <h1>Status: {data.status}</h1>
+                                </div>
+                                <div className="flex justify-end gap-5">
+                                    <button className="btn btn-sm text-green-800 bg-transparent" onClick={()=> handleApprove(data)}><FaCheck></FaCheck></button>
+                                    <button className="btn btn-sm text-red-800 bg-transparent" onClick={()=> handleDeny(data)}><FaTimes></FaTimes></button>
+                                    <Link to="/dashboard/admin/feedback">
+                                        <button className="btn btn-sm bg-transparent"><FaStickyNote></FaStickyNote></button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );

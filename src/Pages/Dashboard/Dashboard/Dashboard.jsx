@@ -34,7 +34,7 @@ const Dashboard = () => {
                 </div> 
                 <div className="drawer-side">
                     <label htmlFor="my-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-52 lg:py-40 h-full bg-[#c74a73] bg-opacity-80 text-xl text-white flex flex-col gap-4">
+                    <ul className="menu p-4 w-64 lg:py-40 h-full bg-[#c74a73] bg-opacity-80 text-xl text-white flex flex-col gap-4">
                         {
                             isAdmin?<>
                                 <Link to="/dashboard/admin/manageClasses" className="flex items-center gap-2"><FaList></FaList> Manage Classes</Link>

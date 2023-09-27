@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 
 const EnrolledClasses = () => {
-    let serial = 1;
     const {user} = useContext(AuthContext);
     const [enrolled, setEnrolled] = useState([]);
     useEffect(()=>{
@@ -13,34 +12,31 @@ const EnrolledClasses = () => {
         .then(res=> res.json())
         .then(data => setEnrolled(data));
     },[])
+
+    console.log(enrolled);
+
     return (
-        <div>
+        <div className="max-w-screen-2xl mx-auto">
             <SectionTitle heading={`All Enrolled Classes`}></SectionTitle>
-            <div className="overflow-x-auto my-10">
-                <table className="table text-lg">
-                    {/* head */}
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Class Name</th>
-                        <th>Class Images</th>
-                        <th>Instructor Name</th>
-                        <th>Instructor Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center m-10">
+                
                         {enrolled.map(data=> (
-                             <tr className="bg-base-200" key={data._id}>
-                                <th>{serial++}</th>
-                                <td>{data.selectedClass}</td>
-                                <td><img src={data.selectedClassImage} className="w-20 rounded-full" alt="" /></td>
-                                <td>{data.instructorName}</td>
-                                <td>{data.instructorEmail}</td>
-                            </tr>
+                             <div key={data._id} className="card min-h-fit w-80 lg:w-96 bg-base-100 shadow-xl">
+                             <figure>
+                                 <img src={data.selectedClassImage} alt="" className="h-64 w-full" />
+                             </figure>
+                             <div className="card-body">
+                                 <div>
+                                     <h1 className="text-xl font-semibold">Class Name: {data.selectedClass}</h1>
+                                     <h1>Instructor Name: {data.instructorName}</h1>
+                                     <h1>Instructor Email: {data.instructorEmail}</h1>
+                                     <h1>Price: {data.price} $</h1>
+                                     <h1>Enroll Data: {data.data.split('T')[0]}</h1>
+                                 </div>
+                             </div>
+                         </div>
                         ))}
                    
-                    </tbody>
-                </table>
             </div>
         </div>
     );

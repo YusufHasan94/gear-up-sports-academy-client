@@ -4,6 +4,7 @@ import CombineCard from '../CombineCard/CombineCard';
 import PopularClass from '../PopularClass/PopularClass';
 import PopularImages from '../PopularImages/PopularImages';
 import PopularInstructor from '../PopularInstructor/PopularInstructor';
+import ShortAbout from '../ShortAbout/ShortAbout';
 import Sponsers from '../Sponsers/Sponsers';
 import TopReview from '../TopReview/TopReview';
 
@@ -13,6 +14,7 @@ const Home = () => {
         <div className=''>
             <Banner></Banner>
             <CombineCard/>
+            <ShortAbout/>
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <TopReview></TopReview>

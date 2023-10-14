@@ -13,7 +13,7 @@ const PopularClass = () => {
             .then(data => setClasses(data))
     }, [])
     return (
-        <div className='md:m-10 my-10'>
+        <div className='max-w-screen-xl md:mx-auto mx-10 my-10'>
             <SectionTitle heading="Popular Class"></SectionTitle>
             <div className='my-10 mx-10 md:mx-4'>
                 <Swiper
@@ -34,7 +34,7 @@ const PopularClass = () => {
                         }, 1024: {
                             slidesPerView: 3,
                         }, 1440: {
-                            slidesPerView: 4,
+                            slidesPerView: 3,
                         }
 
 

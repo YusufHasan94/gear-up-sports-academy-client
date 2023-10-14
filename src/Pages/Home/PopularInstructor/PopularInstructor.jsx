@@ -9,7 +9,7 @@ const PopularInstructor = () => {
         .then(data=>setInstructors(data))
     },[])
     return (
-        <div className='my-10'>
+        <div className='max-w-screen-xl md:mx-auto mx-10 my-10'>
             <SectionTitle heading="Popular InsTructors"></SectionTitle>
             <div className='grid lg:grid-cols-3 md:gap-y-10 m-10 gap-5 md:gap-0 justify-items-center'>
                 {

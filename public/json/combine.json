@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "image": "https://img.freepik.com/free-photo/children-being-happy-after-winning-football-match_23-2148631572.jpg?w=740&t=st=1697303752~exp=1697304352~hmac=240fcd45d8f1fe0c808653fad74093a779fe83229107cda191c18fb84f5dc633",
+        "title": "Photos",
+        "subtitle": "visit gallery",
+        "route": "gallery"
+    },{
+        "id": 2,
+        "image": "https://img.freepik.com/premium-photo/schoolchildren-with-teacher-have-dance-sing-lesson-outdoor-creative-educational-project_290431-17453.jpg?w=740",
+        "title": "Alumni",
+        "subtitle": "stay in touch",
+        "route": "alumni"
+    },{
+        "id": 1,
+        "image": "https://img.freepik.com/free-photo/football-trainer-teaching-his-pupils_23-2149707980.jpg?w=740&t=st=1697303869~exp=1697304469~hmac=c369c519e3200ba43d09a27109c80247a5db721399c8799d7c5bf74e92ff7c65",
+        "title": "Instructors",
+        "subtitle": "See our instructors",
+        "route": "instructors"
+    }
+]

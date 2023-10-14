@@ -21,6 +21,8 @@ const Navbar = () => {
 
     const menuItem = <>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/gallery">Gallery</Link></li>
+        <li><Link to="/alumni">Alumni</Link></li>
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         {user? <>
@@ -49,7 +51,7 @@ const Navbar = () => {
         }
     </>
     return (
-        <div className="navbar md:justify-between fixed z-20 bg-opacity-40 bg-[#c74a73] p-5">
+        <div className="navbar md:justify-between fixed z-20 bg-opacity-40 bg-gray-600 py-2 px-5">
             <div className="">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

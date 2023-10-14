@@ -1,5 +1,6 @@
 import dynamicTitle from '../../../hooks/dynamicTitle';
 import Banner from '../Banner/Banner';
+import CombineCard from '../CombineCard/CombineCard';
 import PopularClass from '../PopularClass/PopularClass';
 import PopularImages from '../PopularImages/PopularImages';
 import PopularInstructor from '../PopularInstructor/PopularInstructor';
@@ -11,6 +12,7 @@ const Home = () => {
     return (
         <div className=''>
             <Banner></Banner>
+            <CombineCard/>
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <TopReview></TopReview>

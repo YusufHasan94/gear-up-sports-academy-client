@@ -2,21 +2,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
-import banner2 from "../../../assets/banner/banner2.jpg";
-import banner3 from "../../../assets/banner/banner3.jpg";
-import banner4 from "../../../assets/banner/banner4.jpg";
 import banner5 from "../../../assets/banner/banner5.jpg";
+import banner6 from "../../../assets/banner/banner6.jpg";
+import banner7 from "../../../assets/banner/banner7.jpg";
+import banner8 from "../../../assets/banner/banner8.jpg";
 import { TypeAnimation } from "react-type-animation";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
-const bannerImages = [{ 'banner': banner2, 'text': 'Game On! Summer Sports Camp' },
-{ 'banner': banner3, 'text': 'Kick, Score, Soar: Sports Camp Adventures' },
-{ 'banner': banner4, 'text': 'The Athletes Playground: Summer Sports Camp' },
-{ 'banner': banner5, 'text': 'Goal Getters: Soccer Camp Excitement' }];
+const bannerImages = [{ 'banner': banner5, 'text': 'Game On! Summer Sports Camp' },
+{ 'banner': banner6, 'text': 'Kick, Score, Soar: Sports Camp Adventures' },
+{ 'banner': banner7, 'text': 'The Athletes Playground: Summer Sports Camp' },
+{ 'banner': banner8, 'text': 'Goal Getters: Soccer Camp Excitement' }];
 
 const Banner = () => {
-    const {user} = useContext(AuthContext); 
     return (
         <div className="relative">
             <div>
@@ -37,15 +35,14 @@ const Banner = () => {
                                             wrapper="span"
                                             speed={5}
                                             style={{ display: 'block'}}
-                                            className="md:text-6xl text-2xl text-white uppercase font-mono mb-10 font-semibold"
+                                            className="md:text-6xl text-2xl text-white uppercase bg-opacity-5 mb-10 font-semibold font-mono"
                                             repeat={0}
                                         />
-                                        {user?
-                                            '':
-                                            <button className="px-4 py-2 rounded-xl bg-red-400 text-white text-xl">
-                                                Enroll Now
+                                        <Link to="/classes">
+                                            <button className="bg-[#fc5640] px-5 py-2 rounded-lg text-xl text-white">
+                                                Grab Your Sit Today
                                             </button>
-                                        }
+                                        </Link>
                                     </div>
                                 </div>
                             </SwiperSlide>

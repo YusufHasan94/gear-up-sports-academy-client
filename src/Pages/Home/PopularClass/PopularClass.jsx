@@ -42,7 +42,7 @@ const PopularClass = () => {
                     modules={[Pagination]}
                 >
                     {
-                        classes.map(data => (
+                        classes.slice(0,8).map(data => (
                             <SwiperSlide key={data._id} style={{display: 'flex', justifyContent: 'center'}}>
                                 <div className="card w-80 bg-base-100 shadow-xl">
                                     <figure><img src={data.classImage} alt="Shoes" className='h-64 w-full' /></figure>
